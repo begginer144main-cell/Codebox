@@ -1,0 +1,90 @@
+{
+  "version": 2,
+  "saved_at": "2026-05-08T20:57:06",
+  "fs_root": {
+    "type": "dir",
+    "name": "/",
+    "files": {
+      "system": {
+        "type": "dir",
+        "name": "system",
+        "files": {
+          "config.sys": {
+            "type": "file",
+            "name": "config.sys",
+            "content": "[System Configuration]\nmode=simulation\nnetwork=virtual"
+          },
+          "boot.log": {
+            "type": "file",
+            "name": "boot.log",
+            "content": "System boot successful"
+          }
+        }
+      },
+      "home": {
+        "type": "dir",
+        "name": "home",
+        "files": {
+          "readme.txt": {
+            "type": "file",
+            "name": "readme.txt",
+            "content": "Welcome to System Simulator Core."
+          }
+        }
+      }
+    }
+  },
+  "fs_path": [],
+  "cpu": 10,
+  "ram": 22,
+  "storage": 45,
+  "uptime": 58,
+  "processes": [
+    {
+      "name": "kernel.exe",
+      "status": "running",
+      "cpu": 5
+    },
+    {
+      "name": "ui_service.exe",
+      "status": "running",
+      "cpu": 8
+    },
+    {
+      "name": "network.sys",
+      "status": "running",
+      "cpu": 2
+    }
+  ],
+  "admin_mode": true,
+  "system_corrupted": false,
+  "corruption_level": 0,
+  "event_log": [
+    [
+      "EVENT",
+      "Disk I/O increased by 25%"
+    ],
+    [
+      "CRITICAL",
+      "Virus injection detected"
+    ],
+    [
+      "RECOVERY",
+      "Core rebuilt successfully"
+    ],
+    [
+      "EVENT",
+      "Connecting to remote server..."
+    ]
+  ],
+  "command_history": [
+    "help",
+    "sudo unlock",
+    "help",
+    "ai ask what is life",
+    "inject virus",
+    "rebuild core",
+    "save",
+    "save"
+  ]
+}

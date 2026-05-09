@@ -1,0 +1,304 @@
+﻿:root {
+  color-scheme: dark;
+  --bg: #080b0e;
+  --panel: #10161c;
+  --panel-2: #151d24;
+  --text: #d8f3e4;
+  --muted: #8aa29a;
+  --line: #26343c;
+  --green: #51e58a;
+  --cyan: #66d9ef;
+  --amber: #f2c36b;
+  --red: #ff6b6b;
+  --blue: #7aa2ff;
+  --shadow: rgba(0, 0, 0, 0.42);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    radial-gradient(circle at 20% 0%, rgba(102, 217, 239, 0.12), transparent 34%),
+    var(--bg);
+  background-size: 28px 28px, 28px 28px, auto, auto;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 18px;
+  padding: 18px;
+}
+
+.terminal-zone,
+.side-panel {
+  min-width: 0;
+}
+
+.topbar {
+  height: 82px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.eyebrow {
+  margin: 0 0 4px;
+  font: 700 12px/1.2 "Cascadia Mono", Consolas, monospace;
+  color: var(--cyan);
+  letter-spacing: 0;
+}
+
+h1,
+h2 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+h1 {
+  font-size: clamp(30px, 5vw, 52px);
+  line-height: 1;
+}
+
+h2 {
+  font-size: 15px;
+}
+
+.status-strip {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  font: 700 12px/1 "Cascadia Mono", Consolas, monospace;
+}
+
+.status-strip span,
+#threatBadge,
+#missionCount {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--muted);
+  padding: 7px 9px;
+}
+
+.terminal-frame,
+.panel-section {
+  border: 1px solid var(--line);
+  background: rgba(16, 22, 28, 0.92);
+  box-shadow: 0 18px 50px var(--shadow);
+}
+
+.terminal-frame {
+  height: calc(100vh - 118px);
+  min-height: 520px;
+  display: grid;
+  grid-template-rows: 34px minmax(0, 1fr) 44px;
+}
+
+.terminal-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--line);
+  padding: 0 12px;
+  background: var(--panel-2);
+  font: 12px/1 "Cascadia Mono", Consolas, monospace;
+  color: var(--muted);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.red { background: var(--red); }
+.amber { background: var(--amber); }
+.green { background: var(--green); }
+.title { margin-left: 8px; }
+
+.terminal {
+  overflow: auto;
+  padding: 16px;
+  font: 14px/1.48 "Cascadia Mono", "Fira Code", Consolas, monospace;
+  white-space: pre-wrap;
+  .terminal::-webkit-scrollbar {
+  width: 10px;
+}
+
+.terminal::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.terminal::-webkit-scrollbar-thumb {
+  background: var(--line);
+}
+
+
+.line {
+  margin: 0 0 8px;
+}
+
+.line.command {
+  color: var(--cyan);
+}
+
+.line.system {
+  color: var(--muted);
+}
+
+.line.warn {
+  color: var(--amber);
+}
+
+.line.danger {
+  color: var(--red);
+}
+
+.command-line {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: center;
+  gap: 8px;
+  border-top: 1px solid var(--line);
+  padding: 0 14px;
+  background: #090d10;
+  font: 14px/1 "Cascadia Mono", Consolas, monospace;
+}
+
+.prompt {
+  color: var(--green);
+}
+
+#commandInput {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: var(--text);
+  caret-color: var(--green);
+}
+
+.side-panel {
+  display: grid;
+  align-content: start;
+  gap: 14px;
+}
+
+.panel-section {
+  padding: 14px;
+}
+
+.panel-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.map-section {
+  padding-bottom: 10px;
+}
+
+#networkCanvas {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: #090d10;
+  border: 1px solid var(--line);
+}
+
+.mission-list {
+  margin: 0;
+  padding-left: 22px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.mission-list li {
+  margin: 0 0 8px;
+}
+
+.mission-list li.done {
+  color: var(--green);
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.quick-actions button {
+  min-height: 38px;
+  border: 1px solid var(--line);
+  background: #0b1014;
+  color: var(--text);
+  cursor: pointer;
+  font: 700 12px/1 "Cascadia Mono", Consolas, monospace;
+}
+
+.quick-actions button:hover,
+.quick-actions button:focus-visible {
+  border-color: var(--cyan);
+  color: var(--cyan);
+}
+
+@media (max-width: 980px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .terminal-frame {
+    height: 68vh;
+  }
+}
+
+@media (max-width: 620px) {
+  .app-shell {
+    padding: 10px;
+    gap: 10px;
+  }
+  .topbar {
+    height: auto;
+    min-height: 96px;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-bottom: 12px;
+  }
+
+  .status-strip {
+    justify-content: flex-start;
+  }
+
+  .terminal {
+    font-size: 12px;
+  }
+
+  .command-line {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,67 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CoreBox Terminal Lab</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="terminal-zone" aria-label="CoreBox terminal game">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">COREBOX TERMINAL LAB</p>
+          <h1>Node Zero</h1>
+        </div>
+        <div class="status-strip" aria-label="system status">
+          <span id="statusAdmin">ADMIN: OFF</span>
+          <span id="statusFirewall">FW: ON</span>
+          <span id="statusSession">SESSION: LOCAL</span>
+        </div>
+      </header>
+
+      <div class="terminal-frame">
+        <div class="terminal-titlebar">
+          <span class="dot red"></span>
+          <span class="dot amber"></span>
+          <span class="dot green"></span>
+          <span class="title">operator@corebox:/</span>
+        </div>
+        <div id="terminal" class="terminal" role="log" aria-live="polite"></div>
+        <form id="commandForm" class="command-line" autocomplete="off">
+          <span id="prompt" class="prompt">[/] &gt;</span>
+          <input id="commandInput" aria-label="terminal command" spellcheck="false" autofocus>
+        </form>
+      </div>
+    </section>
+
+    <aside class="side-panel" aria-label="mission and network panel">
+      <div class="panel-section map-section">
+        <div class="panel-heading">
+          <h2>Network</h2>
+          <span id="threatBadge">STABLE</span>
+        </div>
+        <canvas id="networkCanvas" width="420" height="260" aria-label="simulated network map"></canvas>
+      </div>
+
+      <div class="panel-section">
+        <div class="panel-heading">
+          <h2>Mission</h2>
+          <span id="missionCount">0/6</span>
+        </div>
+        <ol id="missionList" class="mission-list"></ol>
+      </div>
+
+      <div class="panel-section quick-actions">
+        <button type="button" data-command="help">help</button>
+        <button type="button" data-command="mission">mission</button>
+        <button type="button" data-command="scan 10.0.0.5">scan</button>
+        <button type="button" data-command="status">status</button>
+      </div>
+    </aside>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
